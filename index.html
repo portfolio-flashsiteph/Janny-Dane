@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrisy - Personal vCard & Portfolio</title>
+  <!-- Font Awesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">nemu<span style="color:var(--accent)">.</span></a>
+      
+      <!-- Desktop Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link active">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#resume" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-controls">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="nav-drawer" id="navDrawer">
+    <ul class="drawer-menu">
+      <li><a href="#about" class="drawer-link active"><i class="fa-solid fa-user"></i> About</a></li>
+      <li><a href="#services" class="drawer-link"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+      <li><a href="#portfolio" class="drawer-link"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
+      <li><a href="#resume" class="drawer-link"><i class="fa-solid fa-file-lines"></i> Resume</a></li>
+      <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="about" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-avatar-wrapper">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Chrisy Avatar" class="hero-avatar">
+          <div>
+            <span class="status-badge">
+              <span class="status-dot"></span> Available for hire
+            </span>
+          </div>
+        </div>
+        <div class="hero-text">
+          <h1>Hi There! I'm Chrisy.</h1>
+          <div class="tagline">Professional Digital Marketer based in Mongolia</div>
+          <p>I specialize in creating high-impact marketing strategies, enhancing brand awareness, and driving continuous lead generation across multiple digital platforms.</p>
+          <a href="#contact" class="btn"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3>4,000+</h3>
+              <p>Satisfied customers worldwide over 10 years</p>
+            </div>
+            <div class="stat-card">
+              <h3>10+</h3>
+              <p>Years of industry experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Email Marketing</h3>
+            <p>Designing targeted automated email flows that convert readers into loyal recurring buyers.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>SEO & SEM</h3>
+            <p>Optimizing organic performance and running efficient paid campaigns for immediate visibility.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3>Copywriting</h3>
+            <p>Crafting persuasive ad copy, landing pages, and pitch decks engineered to boost conversion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <h2 class="section-title">My Recent Works</h2>
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="marketing">Marketing</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="marketing">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 1">
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Marketing</span>
+              <h3>3D Printed Product Campaign</h3>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="branding">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 2">
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Branding</span>
+              <h3>Painted Orange Slices Identity</h3>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="marketing">
+            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 3">
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Marketing</span>
+              <h3>Banana & Coffee Ecommerce</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME & SKILLS SECTION -->
+    <section id="resume" class="section">
+      <div class="container">
+        <h2 class="section-title">Resume & Skills</h2>
+        <div class="resume-grid">
+          
+          <!-- Experience Timeline -->
+          <div>
+            <h3 style="margin-bottom: 25px;">Experience</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">2023 - Present</div>
+                <div class="timeline-title">Creative Director</div>
+                <div class="timeline-subtitle">@flatheme</div>
+                <p>Leading global brand strategies and creative teams across diverse digital campaigns.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2021 - 2023</div>
+                <div class="timeline-title">Marketing Team Lead</div>
+                <div class="timeline-subtitle">@flatheme</div>
+                <p>Managed multi-channel user acquisition pipelines and performance optimization.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Skills -->
+          <div>
+            <h3 style="margin-bottom: 25px;">Skills</h3>
+            <div class="skill-bar-wrapper">
+              <div class="skill-info">
+                <span>Digital Marketing</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-progress="95%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar-wrapper">
+              <div class="skill-info">
+                <span>Copywriting</span>
+                <span>88%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-progress="88%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar-wrapper">
+              <div class="skill-info">
+                <span>SEO & Analytics</span>
+                <span>90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-progress="90%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          
+          <div class="contact-info-card">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <p>+123 456 789 01</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <p>contact@flatheme.net</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Location</strong>
+                <p>Mongolia</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 FlaTheme. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- jQuery CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
