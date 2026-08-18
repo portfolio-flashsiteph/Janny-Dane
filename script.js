@@ -1,53 +1,29 @@
 $(document).ready(function () {
-
+  
   // ----------------------------------------------------------------------
-  // 1. THEME TOGGLE (DARK / LIGHT)
-  // ----------------------------------------------------------------------
-  const $themeToggleBtn = $('#themeToggle');
-  const $themeIcon = $themeToggleBtn.find('i');
-
-  const savedTheme = localStorage.getItem('janny_theme') || 'dark';
-  if (savedTheme === 'light') {
-    $('body').attr('data-theme', 'light');
-    $themeIcon.removeClass('fa-moon').addClass('fa-sun');
-  }
-
-  $themeToggleBtn.on('click', function () {
-    const currentTheme = $('body').attr('data-theme');
-    if (currentTheme === 'light') {
-      $('body').removeAttr('data-theme');
-      $themeIcon.removeClass('fa-sun').addClass('fa-moon');
-      localStorage.setItem('janny_theme', 'dark');
-    } else {
-      $('body').attr('data-theme', 'light');
-      $themeIcon.removeClass('fa-moon').addClass('fa-sun');
-      localStorage.setItem('janny_theme', 'light');
-    }
-  });
-
-  // ----------------------------------------------------------------------
-  // 2. MOBILE DRAWER NAVIGATION
+  // 1. Mobile Navigation Drawer & Hamburger Toggle
   // ----------------------------------------------------------------------
   const $hamburgerBtn = $('#hamburgerBtn');
   const $navDrawer = $('#navDrawer');
   const $drawerOverlay = $('#drawerOverlay');
+  const $body = $('body');
 
   function openDrawer() {
-    $hamburgerBtn.addClass('active');
-    $navDrawer.addClass('active');
-    $drawerOverlay.addClass('active');
-    $('body').css('overflow', 'hidden');
+    $hamburgerBtn.addClass('is-active');
+    $navDrawer.addClass('is-open');
+    $drawerOverlay.addClass('is-visible');
+    $body.addClass('no-scroll');
   }
 
   function closeDrawer() {
-    $hamburgerBtn.removeClass('active');
-    $navDrawer.removeClass('active');
-    $drawerOverlay.removeClass('active');
-    $('body').css('overflow', '');
+    $hamburgerBtn.removeClass('is-active');
+    $navDrawer.removeClass('is-open');
+    $drawerOverlay.removeClass('is-visible');
+    $body.removeClass('no-scroll');
   }
 
   $hamburgerBtn.on('click', function () {
-    if ($navDrawer.hasClass('active')) {
+    if ($navDrawer.hasClass('is-open')) {
       closeDrawer();
     } else {
       openDrawer();
@@ -57,143 +33,91 @@ $(document).ready(function () {
   $drawerOverlay.on('click', closeDrawer);
 
   $('.drawer-link').on('click', function () {
+    $('.drawer-link').removeClass('active');
+    $(this).addClass('active');
     closeDrawer();
   });
 
   // ----------------------------------------------------------------------
-  // 3. HEADER STICKY & ACTIVE LINK HIGHLIGHT ON SCROLL
+  // 2. Dark/Light Mode Switcher
   // ----------------------------------------------------------------------
-  const $header = $('.header');
-  const $sections = $('section');
-  const $navLinks = $('.nav-link, .drawer-link');
-
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() > 50) {
-      $header.addClass('scrolled');
-    } else {
-      $header.removeClass('scrolled');
-    }
-
-    // ScrollSpy logic
-    let scrollPos = $(document).scrollTop() + 200;
-    $sections.each(function () {
-      const top = $(this).offset().top;
-      const height = $(this).outerHeight();
-      const id = $(this).attr('id');
-
-      if (scrollPos >= top && scrollPos < top + height) {
-        $navLinks.removeClass('active');
-        $(`.nav-link[href="#${id}"], .drawer-link[href="#${id}"]`).addClass('active');
-      }
-    });
+  const $themeToggle = $('#themeToggle');
+  
+  $themeToggle.on('click', function () {
+    $body.toggleClass('dark-mode');
+    const isDark = $body.hasClass('dark-mode');
+    
+    $(this).html(isDark 
+      ? '<i class="fa-solid fa-sun"></i>' 
+      : '<i class="fa-solid fa-moon"></i>'
+    );
   });
 
   // ----------------------------------------------------------------------
-  // 4. PORTFOLIO FILTERING
+  // 3. Interactive Portfolio Filter with Smooth Transitions
   // ----------------------------------------------------------------------
   $('.filter-btn').on('click', function () {
     $('.filter-btn').removeClass('active');
     $(this).addClass('active');
 
     const filter = $(this).attr('data-filter');
-    const $items = $('.portfolio-item');
 
     if (filter === 'all') {
-      $items.fadeIn(400);
+      $('.portfolio-item').stop().fadeIn(400);
     } else {
-      $items.each(function () {
-        if ($(this).attr('data-category') === filter) {
-          $(this).fadeIn(400);
-        } else {
-          $(this).fadeOut(200);
-        }
-      });
+      $('.portfolio-item').stop().hide();
+      $(`.portfolio-item[data-category="${filter}"]`).stop().fadeIn(400);
     }
   });
 
   // ----------------------------------------------------------------------
-  // 5. ANIMATE SKILL BARS ON SCROLL
+  // 4. Animate Skill Progress Bars on Scroll
   // ----------------------------------------------------------------------
-  let skillsAnimated = false;
-  $(window).on('scroll', function () {
-    const resumeTop = $('#resume').offset().top - $(window).height() + 100;
-    if (!skillsAnimated && $(window).scrollTop() > resumeTop) {
-      $('.progress-fill').each(function () {
-        const targetWidth = $(this).attr('data-progress');
-        $(this).css('width', targetWidth);
-      });
-      skillsAnimated = true;
-    }
-  });
+  let animated = false;
 
-  // Initial check if page loads directly at resume
-  if ($('#resume').length && $(window).scrollTop() > $('#resume').offset().top - $(window).height() + 100) {
-    $('.progress-fill').each(function () {
-      const targetWidth = $(this).attr('data-progress');
-      $(this).css('width', targetWidth);
+  function checkScroll() {
+    const resumeSection = $('#resume');
+    if (resumeSection.length) {
+      const top = resumeSection.offset().top - window.innerHeight + 100;
+      if (!animated && $(window).scrollTop() > top) {
+        $('.progress-fill').each(function () {
+          const targetWidth = $(this).attr('data-progress');
+          $(this).css('width', targetWidth);
+        });
+        animated = true;
+      }
+    }
+  }
+
+  $(window).on('scroll', checkScroll);
+  checkScroll();
+
+  // ----------------------------------------------------------------------
+  // 5. Interactive Button Ripple Effect
+  // ----------------------------------------------------------------------
+  $('.btn').on('click', function (e) {
+    const $btn = $(this);
+    const x = e.pageX - $btn.offset().left;
+    const y = e.pageY - $btn.offset().top;
+
+    const $ripple = $('<span class="ripple"></span>').css({
+      top: y + 'px',
+      left: x + 'px'
     });
-    skillsAnimated = true;
-  }
 
-  // ----------------------------------------------------------------------
-  // 6. TESTIMONIAL SLIDER LOGIC
-  // ----------------------------------------------------------------------
-  const $cards = $('.testimonial-card');
-  const totalSlides = $cards.length;
-  let currentIndex = 0;
-  const $dotsContainer = $('#sliderDots');
+    $btn.append($ripple);
 
-  // Clear existing dots first to prevent duplication
-  $dotsContainer.empty();
-
-  // Dynamically create pagination dots
-  for (let i = 0; i < totalSlides; i++) {
-    $dotsContainer.append(`<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`);
-  }
-
-  function showSlide(index) {
-    if (index >= totalSlides) currentIndex = 0;
-    else if (index < 0) currentIndex = totalSlides - 1;
-    else currentIndex = index;
-
-    $cards.removeClass('active').eq(currentIndex).addClass('active');
-    $('.dot').removeClass('active').eq(currentIndex).addClass('active');
-  }
-
-  $('#nextSlide').off('click').on('click', function () {
-    showSlide(currentIndex + 1);
+    setTimeout(() => {
+      $ripple.remove();
+    }, 600);
   });
 
-  $('#prevSlide').off('click').on('click', function () {
-    showSlide(currentIndex - 1);
-  });
-
-  $(document).on('click', '.dot', function () {
-    const idx = parseInt($(this).attr('data-index'));
-    showSlide(idx);
-  });
-
-  // Auto-slide every 6 seconds
-  let autoSlide = setInterval(() => {
-    showSlide(currentIndex + 1);
-  }, 6000);
-
-  // Pause auto-sliding on hover
-  $('.testimonial-slider-wrapper').hover(
-    function () { clearInterval(autoSlide); },
-    function () {
-      autoSlide = setInterval(() => {
-        showSlide(currentIndex + 1);
-      }, 6000);
-    }
-  );
-
   // ----------------------------------------------------------------------
-  // 7. FORM SUBMISSION HANDLER
+  // 6. Contact Form Submission
   // ----------------------------------------------------------------------
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
-    alert('Thank you for reaching out! Janny will get back to you shortly.');
+    alert('Thank you, gorgeous! ✨ Your message has been sent successfully.');
     this.reset();
   });
 
