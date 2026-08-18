@@ -30,10 +30,8 @@ $(document).ready(function () {
     }
   });
 
-  // Close drawer when clicking backdrop overlay
   $drawerOverlay.on('click', closeDrawer);
 
-  // Close drawer and highlight active link when clicking drawer links
   $('.drawer-link').on('click', function () {
     $('.drawer-link').removeClass('active');
     $(this).addClass('active');
@@ -56,7 +54,7 @@ $(document).ready(function () {
   });
 
   // ----------------------------------------------------------------------
-  // 3. Interactive Portfolio Filter
+  // 3. Interactive Portfolio Filter with Smooth Transitions
   // ----------------------------------------------------------------------
   $('.filter-btn').on('click', function () {
     $('.filter-btn').removeClass('active');
@@ -65,10 +63,10 @@ $(document).ready(function () {
     const filter = $(this).attr('data-filter');
 
     if (filter === 'all') {
-      $('.portfolio-item').fadeIn(300);
+      $('.portfolio-item').stop().fadeIn(400);
     } else {
-      $('.portfolio-item').hide();
-      $(`.portfolio-item[data-category="${filter}"]`).fadeIn(300);
+      $('.portfolio-item').stop().hide();
+      $(`.portfolio-item[data-category="${filter}"]`).stop().fadeIn(400);
     }
   });
 
@@ -92,14 +90,34 @@ $(document).ready(function () {
   }
 
   $(window).on('scroll', checkScroll);
-  checkScroll(); // Trigger check on initial load
+  checkScroll();
 
   // ----------------------------------------------------------------------
-  // 5. Contact Form Submission
+  // 5. Interactive Button Ripple Effect
+  // ----------------------------------------------------------------------
+  $('.btn').on('click', function (e) {
+    const $btn = $(this);
+    const x = e.pageX - $btn.offset().left;
+    const y = e.pageY - $btn.offset().top;
+
+    const $ripple = $('<span class="ripple"></span>').css({
+      top: y + 'px',
+      left: x + 'px'
+    });
+
+    $btn.append($ripple);
+
+    setTimeout(() => {
+      $ripple.remove();
+    }, 600);
+  });
+
+  // ----------------------------------------------------------------------
+  // 6. Contact Form Submission
   // ----------------------------------------------------------------------
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
-    alert('Thank you! Your message has been sent successfully.');
+    alert('Thank you, gorgeous! ✨ Your message has been sent successfully.');
     this.reset();
   });
 
