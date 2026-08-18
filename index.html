@@ -6,15 +6,20 @@
   <title>Janny Dane - Personal vCard & Portfolio</title>
   <!-- Font Awesome Icons & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- FLOATING AESTHETIC BACKGROUND ELEMENTS -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <a href="#" class="logo">nemu<span style="color:var(--accent)">.</span></a>
+      <a href="#" class="logo">janny<span class="sparkle-icon">✨</span></a>
       
       <!-- Desktop Menu -->
       <nav>
@@ -62,18 +67,19 @@
     <section id="about" class="section hero">
       <div class="container hero-grid">
         <div class="hero-avatar-wrapper">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Chrisy Avatar" class="hero-avatar">
+          <div class="avatar-ring"></div>
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Janny Avatar" class="hero-avatar">
           <div>
-            <span class="status-badge">
+            <span class="status-badge pulse-effect">
               <span class="status-dot"></span> Available for hire
             </span>
           </div>
         </div>
         <div class="hero-text">
-          <h1>Hi There! I'm Janny.</h1>
+          <h1>Hi There! I'm <span class="gradient-text">Janny.</span> ✨</h1>
           <div class="tagline">Professional Digital Marketer based in PH</div>
           <p>I specialize in creating high-impact marketing strategies, enhancing brand awareness, and driving continuous lead generation across multiple digital platforms.</p>
-          <a href="#contact" class="btn"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+          <a href="#contact" class="btn btn-glow"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
           
           <div class="stats-grid">
             <div class="stat-card">
@@ -95,7 +101,7 @@
         <h2 class="section-title">Services</h2>
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
             <h3>Email Marketing</h3>
             <p>Designing targeted automated email flows that convert readers into loyal recurring buyers.</p>
           </div>
@@ -105,7 +111,7 @@
             <p>Optimizing organic performance and running efficient paid campaigns for immediate visibility.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
             <h3>Copywriting</h3>
             <p>Crafting persuasive ad copy, landing pages, and pitch decks engineered to boost conversion.</p>
           </div>
@@ -125,21 +131,27 @@
 
         <div class="portfolio-grid">
           <div class="portfolio-item" data-category="marketing">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 1">
+            <div class="portfolio-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 1">
+            </div>
             <div class="portfolio-info">
               <span class="portfolio-tag">Marketing</span>
               <h3>3D Printed Product Campaign</h3>
             </div>
           </div>
           <div class="portfolio-item" data-category="branding">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 2">
+            <div class="portfolio-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 2">
+            </div>
             <div class="portfolio-info">
               <span class="portfolio-tag">Branding</span>
               <h3>Painted Orange Slices Identity</h3>
             </div>
           </div>
           <div class="portfolio-item" data-category="marketing">
-            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 3">
+            <div class="portfolio-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=600" class="portfolio-img" alt="Work 3">
+            </div>
             <div class="portfolio-info">
               <span class="portfolio-tag">Marketing</span>
               <h3>Banana & Coffee Ecommerce</h3>
@@ -252,7 +264,7 @@
             <div class="form-group">
               <textarea placeholder="Your Message" required></textarea>
             </div>
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="btn btn-glow">Send Message ✨</button>
           </form>
 
         </div>
