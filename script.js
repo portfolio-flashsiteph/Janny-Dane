@@ -1,4 +1,5 @@
-// ----------------------------------------------------------------------
+$(document).ready(function () {
+  // ----------------------------------------------------------------------
   // TESTIMONIAL SLIDER LOGIC
   // ----------------------------------------------------------------------
   const $cards = $('.testimonial-card');
@@ -6,7 +7,7 @@
   let currentIndex = 0;
   const $dotsContainer = $('#sliderDots');
 
-  // Build pagination dots
+  // Build pagination dots dynamically
   for (let i = 0; i < totalSlides; i++) {
     $dotsContainer.append(`<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`);
   }
@@ -22,6 +23,7 @@
     $dots.removeClass('active').eq(currentIndex).addClass('active');
   }
 
+  // Next / Prev control clicks
   $('#nextSlide').on('click', function () {
     showSlide(currentIndex + 1);
   });
@@ -30,22 +32,26 @@
     showSlide(currentIndex - 1);
   });
 
+  // Direct Dot Clicks
   $(document).on('click', '.dot', function () {
     const idx = parseInt($(this).attr('data-index'));
     showSlide(idx);
   });
 
-  // Auto-play slider every 6 seconds
+  // Auto-play interval
   let autoSlide = setInterval(() => {
     showSlide(currentIndex + 1);
   }, 6000);
 
-  // Pause on hover
+  // Pause autoplay on mouse hover
   $('.testimonial-slider-wrapper').hover(
-    function () { clearInterval(autoSlide); },
+    function () {
+      clearInterval(autoSlide);
+    },
     function () {
       autoSlide = setInterval(() => {
         showSlide(currentIndex + 1);
       }, 6000);
     }
   );
+});
