@@ -6,7 +6,7 @@
   <title>Janny Dane - Personal vCard & Portfolio</title>
   <!-- Font Awesome Icons & Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,17 +28,16 @@
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
           <li><a href="#resume" class="nav-link">Resume</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-controls">
-        <!-- Theme Toggle -->
         <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
           <i class="fa-solid fa-moon"></i>
         </button>
 
-        <!-- Mobile Hamburger Toggle Button -->
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
           <span></span>
           <span></span>
@@ -58,6 +57,7 @@
       <li><a href="#services" class="drawer-link"><i class="fa-solid fa-briefcase"></i> Services</a></li>
       <li><a href="#portfolio" class="drawer-link"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
       <li><a href="#resume" class="drawer-link"><i class="fa-solid fa-file-lines"></i> Resume</a></li>
+      <li><a href="#testimonials" class="drawer-link"><i class="fa-solid fa-star"></i> Testimonials</a></li>
       <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
     </ul>
   </aside>
@@ -95,7 +95,7 @@
       </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICES SECTION (6 SERVICES) -->
     <section id="services" class="section">
       <div class="container">
         <h2 class="section-title">Services</h2>
@@ -103,17 +103,32 @@
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
             <h3>Email Marketing</h3>
-            <p>Designing targeted automated email flows that convert readers into loyal recurring buyers.</p>
+            <p>Designing targeted automated email flows that convert casual readers into loyal recurring buyers.</p>
           </div>
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-            <h3>SEO & SEM</h3>
-            <p>Optimizing organic performance and running efficient paid campaigns for immediate visibility.</p>
+            <h3>SEO & Organic Growth</h3>
+            <p>Optimizing page rankings and site architecture for high-intent search traffic and maximum visibility.</p>
           </div>
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <h3>Copywriting</h3>
-            <p>Crafting persuasive ad copy, landing pages, and pitch decks engineered to boost conversion.</p>
+            <h3>Copywriting & Messaging</h3>
+            <p>Crafting persuasive ad copy, landing pages, and email sequences engineered to boost conversions.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Social Media Strategy</h3>
+            <p>Curating aesthetic feed designs and high-converting content strategies to engage your ideal audience.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-rectangle-ad"></i></div>
+            <h3>Paid Advertising (PPC)</h3>
+            <p>Running high-ROAS Meta and Google ad campaigns optimized for scale and client acquisition.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+            <h3>Brand Identity & Design</h3>
+            <p>Building cohesive luxury visual assets, typography, and mood boards that elevate your brand presence.</p>
           </div>
         </div>
       </div>
@@ -166,8 +181,6 @@
       <div class="container">
         <h2 class="section-title">Resume & Skills</h2>
         <div class="resume-grid">
-          
-          <!-- Experience Timeline -->
           <div>
             <h3 style="margin-bottom: 25px;">Experience</h3>
             <div class="timeline">
@@ -186,7 +199,6 @@
             </div>
           </div>
 
-          <!-- Progress Skills -->
           <div>
             <h3 style="margin-bottom: 25px;">Skills</h3>
             <div class="skill-bar-wrapper">
@@ -219,7 +231,67 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- TESTIMONIALS SLIDER SECTION -->
+    <section id="testimonials" class="section">
+      <div class="container">
+        <h2 class="section-title">Client Reviews</h2>
+        <div class="testimonial-slider-wrapper">
+          <div class="testimonial-track">
+            
+            <div class="testimonial-card active">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-quote">"Janny transformed our brand presence completely. Her email funnels brought in 3x more conversions within our first month of launch!"</p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" alt="Client 1">
+                <div>
+                  <h4>Sophia Vance</h4>
+                  <span>Founder, Fleur Beauty</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-quote">"Her paid ad campaign targeting was spot on! Working with Janny is seamless, creative, and extremely result-driven."</p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Client 2">
+                <div>
+                  <h4>Marcus Thorne</h4>
+                  <span>CEO, Lumina Agency</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-quote">"The prettiest aesthetic paired with rock-solid marketing analytics. She doubled our organic traffic in under 90 days."</p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Client 3">
+                <div>
+                  <h4>Elena Rostova</h4>
+                  <span>Marketing Lead, Velvet & Co</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button class="slider-btn prev-btn" id="prevSlide" aria-label="Previous Testimonial"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-btn next-btn" id="nextSlide" aria-label="Next Testimonial"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
         </div>
       </div>
     </section>
